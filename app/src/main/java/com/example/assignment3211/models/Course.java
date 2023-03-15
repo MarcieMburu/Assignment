@@ -1,4 +1,4 @@
-package com.example.assignment3211.modules;
+package com.example.assignment3211.models;
 
 import java.util.HashMap;
 import java.util.Map;
