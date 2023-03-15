@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.assignment3211.databinding.FragmentStudentBinding;
@@ -20,6 +21,8 @@ public class StudentFragment extends Fragment {
     private FragmentStudentBinding binding;
     String firstName, middleName, lastName, idNo, regNo, gender, course, department, school;
     ArrayAdapter<String> coursesAdapter, departmentsAdapter, schoolAdapter;
+
+    Button btnSubmit, btnCancel;
     private String[] courses = {"Computer Science", "IT", "BBIT"};
     private String[] departments = {"Computer Science", "IT ", "BBIT"};
     private String[] schools = {"Computer Science & IT", "School of Engineering ", "School of Business"};
@@ -46,11 +49,14 @@ public class StudentFragment extends Fragment {
 
 
 
+
         firstName = binding.edtFirstname.getText().toString();
         middleName = binding.edtMiddlename.getText().toString();
         lastName = binding.edtLastname.getText().toString();
         idNo = binding.edtIdno.getText().toString();
         regNo = binding.edtRegno.getText().toString();
+
+
 
         //spinner click listeners (Select listeners)
         binding.spCourses.setOnItemSelectedListener((new AdapterView.OnItemSelectedListener() {
