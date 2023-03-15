@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         viewPager2=findViewById(R.id.view_pager);
-        tabLayout=findViewById(R.id.tab_layout);#
+        tabLayout=findViewById(R.id.tab_layout);
 
         viewPagerFragmentAdapter = new ViewPagerFragmentAdapter(this);
 
