@@ -33,7 +33,7 @@
         android:id="@+id/spCourses"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="100dp"
         android:background="@android:drawable/btn_dropdown"
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
@@ -81,10 +81,31 @@
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:layout_marginTop="16dp"
+        android:text="Fill in the Course Details"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:text="Select Course"
+        app:layout_constraintBottom_toTopOf="@+id/spCourses"
+        app:layout_constraintEnd_toEndOf="@+id/spCourses"
+        app:layout_constraintStart_toStartOf="@+id/spCourses" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Year"
+        app:layout_constraintBottom_toTopOf="@+id/spYear"
+        app:layout_constraintEnd_toEndOf="@+id/spYear"
+        app:layout_constraintStart_toStartOf="@+id/spYear" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
