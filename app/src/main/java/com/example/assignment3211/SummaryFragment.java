@@ -10,8 +10,7 @@ import android.view.ViewGroup;
 
 
 public class SummaryFragment extends Fragment {
-
-
+    
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -19,4 +18,7 @@ public class SummaryFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_summary, container, false);
     }
+
+
+
 }

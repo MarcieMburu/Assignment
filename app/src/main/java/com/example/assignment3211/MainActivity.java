@@ -23,13 +23,7 @@ public class MainActivity extends AppCompatActivity {
     TabLayout tabLayout;
     ViewPager2 viewPager2;
 
-
-
     private String[] titles=new String[]{"Student","Course","Summary"};
-
-
-
-
 
     @SuppressLint("MissingInflatedId")
     @Override
