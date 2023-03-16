@@ -1,7 +1,6 @@
 package com.example.assignment3211;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -20,14 +19,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.assignment3211.databinding.FragmentCourseBinding;
-import com.example.assignment3211.models.Course;
+import com.example.assignment3211.models.Unit;
 import com.google.firebase.firestore.FirebaseFirestore;
-
-
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.fragment.NavHostFragment;
 
 
 public class CourseFragment extends Fragment {
@@ -129,8 +122,6 @@ public class CourseFragment extends Fragment {
 
             }
         }));
-
-
         return view;
     }
 
@@ -140,14 +131,6 @@ public class CourseFragment extends Fragment {
      * @param savedInstanceState If non-null, this fragment is being re-constructed
      * from a previous saved state as given here.
      */
-
-
-
-
-
-
-
-    /////
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -155,19 +138,17 @@ public class CourseFragment extends Fragment {
         db = FirebaseFirestore.getInstance();
         loader = new ProgressDialog(getActivity());
 
-
         // set click listeners here
         binding.btnSave.setOnClickListener(v -> {
             // initialize user data
-            Course user = new Course();
-            user.setUnitCode(course);
-            user.setUnitName(course);
-
+            Unit unit = new Unit();
+            unit.setUnitCode(this.course);
+            unit.setUnitName(this.course);
 
             // save data to firebase
             loader.setMessage("Saving data...");
             loader.show();
-            db.collection("users").add(user.toMap()).addOnCompleteListener(task -> {
+            db.collection("users").add(unit.toMap()).addOnCompleteListener(task -> {
                 loader.dismiss();
                 if (!task.isSuccessful()) {
                     Toast.makeText(getActivity(), "Unable to save student data: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
@@ -176,21 +157,4 @@ public class CourseFragment extends Fragment {
                 Toast.makeText(getActivity(), "Student data saved successfully", Toast.LENGTH_SHORT).show();
             });
         });
-
-
-
-        // btnNext = view.findViewById(R.id.btnNext); // replace R.id.btnNext with the actual ID of your Next button
-        //
-        //
-        //        btnNext.setOnClickListener(new View.OnClickListener() {
-        //            @Override
-        //            public void onClick(View v) {
-        //                // replace R.id.action_courseFragment_to_nextFragment with the actual ID of your action
-        //                NavHostFragment.findNavController(CourseFragment.this).navigate(R.id.nav_graph);
-        //            }
-        //        });
-        //    }}
-
     }}
-
-
