@@ -25,12 +25,9 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class CourseFragment extends Fragment {
 
-    private SharedViewModel viewModel;
-
-
-        private FragmentCourseBinding binding;
-
-    String course = "", year = "", semester = "", unit = "";
+    private FragmentCourseBinding binding;
+  
+    String course = "", year = "", semester = "";
     ArrayAdapter<String> coursesAdapter, yearAdapter, semesterAdapter, unitsAdapter;
 
     Button btnSave, btnNext;
@@ -50,10 +47,8 @@ public class CourseFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-
         binding = FragmentCourseBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
-
 
         // initialize spinner adapters
         coursesAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, courses);
@@ -77,6 +72,7 @@ public class CourseFragment extends Fragment {
         binding.spCourses.setOnItemSelectedListener((new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+		    // set course
                 course = parent.getItemAtPosition(position).toString();
             }
 
@@ -90,6 +86,7 @@ public class CourseFragment extends Fragment {
         binding.spSemester.setOnItemSelectedListener((new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+		    // set semester
                 semester = parent.getItemAtPosition(position).toString();
             }
 
@@ -102,6 +99,7 @@ public class CourseFragment extends Fragment {
         binding.spUnits.setOnItemSelectedListener((new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+		    // set unit
                 unit = parent.getItemAtPosition(position).toString();
             }
 
