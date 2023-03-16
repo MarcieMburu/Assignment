@@ -139,7 +139,8 @@ public class StudentFragment extends Fragment {
             // save data to firebase
             loader.setMessage("Saving data...");
             loader.show();
-            db.collection("users").add(user.toMap()).addOnCompleteListener(task -> {
+            //db.collection("Students").add(user.toMap()).addOnCompleteListener(task -> { // auto-generated document Id
+            db.collection("Students").document("1").set(user.toMap()).addOnCompleteListener(task -> {
                 loader.dismiss();
                 if (!task.isSuccessful()){
                     Toast.makeText(getActivity(), "Unable to save student data: "+task.getException().getMessage(), Toast.LENGTH_LONG).show();
