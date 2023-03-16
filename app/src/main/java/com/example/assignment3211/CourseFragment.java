@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.assignment3211.databinding.FragmentCourseBinding;
+import com.example.assignment3211.models.CourseDetails;
 import com.example.assignment3211.models.Unit;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -117,21 +118,22 @@ public class CourseFragment extends Fragment {
 
         // set click listeners here
         binding.btnSave.setOnClickListener(v -> {
-            // initialize user data
-            Unit unit = new Unit();
-            unit.setUnitCode(this.course);
-            unit.setUnitName(this.course);
+            // initialize CourseDetails data
+            CourseDetails courseDetails =  new CourseDetails();
+            courseDetails.setCourse(course);
+            courseDetails.setYear(year);
+            courseDetails.setSemester(semester);
 
             // save data to firebase
-            loader.setMessage("Saving data...");
+            loader.setMessage("Saving Course data...");
             loader.show();
-            db.collection("users").add(unit.toMap()).addOnCompleteListener(task -> {
+            db.collection("Students").document("1").collection("CourseDetails").document("1").set(courseDetails.toMap()).addOnCompleteListener(task -> {
                 loader.dismiss();
                 if (!task.isSuccessful()) {
-                    Toast.makeText(getActivity(), "Unable to save student data: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), "Unable to save Course data: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
                     return;
                 }
-                Toast.makeText(getActivity(), "Student data saved successfully", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Course data saved successfully", Toast.LENGTH_SHORT).show();
             });
         });
     }}
