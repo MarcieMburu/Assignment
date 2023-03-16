@@ -3,11 +3,11 @@ package com.example.assignment3211.models;
 import java.util.HashMap;
 import java.util.Map;
 
-public class User {
+public class Student {
     // user properties
     private String firstName, middleName, lastName, idNo, regNo, gender, course, department, school;
 
-    public User() {
+    public Student() {
     }
 
     public String getFirstName() {

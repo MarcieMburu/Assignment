@@ -1,6 +1,5 @@
 package com.example.assignment3211;
 
-import android.app.ProgressDialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,9 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.assignment3211.databinding.FragmentSummaryBinding;
-import com.example.assignment3211.models.User;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import com.example.assignment3211.models.Student;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -52,7 +49,7 @@ public class SummaryFragment extends Fragment {
 
             QuerySnapshot querySnapshot = task.getResult();
             for (DocumentSnapshot snapshot : querySnapshot.getDocuments()){
-                User user = snapshot.toObject(User.class);
+                Student user = snapshot.toObject(Student.class);
                 // render user interface with user data
                 renderUI(user);
             }
@@ -62,7 +59,7 @@ public class SummaryFragment extends Fragment {
 
 
     // helper method to render user data to the UI
-    private void renderUI(User user){
+    private void renderUI(Student user){
         binding.tvName.setText(user.getFirstName()+" "+user.getMiddleName()+" "+user.getLastName());
         binding.tvRegno.setText(user.getRegNo());
         binding.tvIdNo.setText(user.getIdNo());

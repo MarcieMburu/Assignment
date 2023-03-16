@@ -12,17 +12,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.assignment3211.databinding.FragmentStudentBinding;
-import com.example.assignment3211.models.User;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.DocumentReference;
+import com.example.assignment3211.models.Student;
 import com.google.firebase.firestore.FirebaseFirestore;
-
-import org.checkerframework.checker.units.qual.A;
 
 public class StudentFragment extends Fragment {
     // to use with viewBinding
@@ -119,7 +113,7 @@ public class StudentFragment extends Fragment {
             }
 
             // initialize user data
-            User user = new User();
+            Student user = new Student();
             user.setFirstName(firstName);
             user.setMiddleName(middleName);
             user.setLastName(lastName);

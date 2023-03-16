@@ -1,8 +1,10 @@
 package com.example.assignment3211;
 
-import android.content.Intent;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -14,14 +16,15 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.assignment3211.databinding.FragmentCourseBinding;
-import com.example.assignment3211.databinding.FragmentStudentBinding;
+import com.example.assignment3211.models.Student;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 
 public class CourseFragment extends Fragment {
 
     private FragmentCourseBinding binding;
 
-    String course, year, semester, unit;
+    String course="", year="", semester="", unit="";
     ArrayAdapter<String> coursesAdapter, yearAdapter, semesterAdapter, unitsAdapter;
 
     Button btnSave, btnNext;
@@ -30,6 +33,11 @@ public class CourseFragment extends Fragment {
     private String[] semesters = {"1st Semester", "2nd Semester  "};
     private String[] units = {"Computer Architecture ", "", ""};
 
+
+    //firebase
+    FirebaseFirestore db;
+    //
+    ProgressDialog loader;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -116,5 +124,13 @@ public class CourseFragment extends Fragment {
 
         // Inflate the layout for this fragment
         return view;
-    }
-}
+    }}
+
+
+
+
+
+
+
+
+
