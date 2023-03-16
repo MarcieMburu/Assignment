@@ -40,6 +40,7 @@ public class SummaryFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         db = FirebaseFirestore.getInstance();
 
+        // get all students saved in the database
         db.collection("users").get().addOnCompleteListener(task -> {
             if (!task.isSuccessful()){
                 Toast.makeText(getActivity(), "Error getting student data: "+task.getException().getMessage(), Toast.LENGTH_LONG).show();
