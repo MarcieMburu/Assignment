@@ -3,10 +3,10 @@ package com.example.assignment3211.models;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Course {
+public class Unit {
     private String unitCode, unitName;
 
-    public Course() {
+    public Unit() {
     }
 
     public String getUnitCode() {
@@ -29,8 +29,6 @@ public class Course {
         Map<String, String> data = new HashMap<>();
         data.put("unitCode", unitCode);
         data.put("unitName", unitName);
-
-
         return data;
     }
 }
