@@ -96,11 +96,7 @@ public class StudentFragment extends Fragment {
 
         db = FirebaseFirestore.getInstance();
         loader = new ProgressDialog(getActivity());
-
-
-
-
-
+        
         // set click listeners here
         binding.btnSubmit.setOnClickListener(v -> {
             // get user data
@@ -149,8 +145,6 @@ public class StudentFragment extends Fragment {
                 Toast.makeText(getActivity(), "Student data saved successfully", Toast.LENGTH_SHORT).show();
             });
         });
-
-
 
         // set click listener for cancel button
         binding.btnCancel.setOnClickListener(v -> {
