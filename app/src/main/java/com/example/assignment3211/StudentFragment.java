@@ -132,6 +132,7 @@ public class StudentFragment extends Fragment {
 
             // save data to firebase
             loader.setMessage("Saving data...");
+            loader.show();
             db.collection("users").add(user.toMap()).addOnCompleteListener(task -> {
                 loader.dismiss();
                 if (!task.isSuccessful()){
