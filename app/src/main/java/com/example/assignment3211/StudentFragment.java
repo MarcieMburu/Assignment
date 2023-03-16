@@ -58,6 +58,7 @@ public class StudentFragment extends Fragment {
 
 
 
+
         //spinner click listeners (Select listeners)
         binding.spCourses.setOnItemSelectedListener((new AdapterView.OnItemSelectedListener() {
             @Override

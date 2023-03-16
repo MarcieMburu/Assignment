@@ -14,11 +14,12 @@
 
         <EditText
             android:id="@+id/edtFirstname"
-            android:layout_width="214dp"
+            android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:layout_marginTop="48dp"
             android:ems="10"
             android:hint="First Name"
+            android:background="@drawable/edt_bg"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
@@ -33,6 +34,7 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="Middle Name"
+            android:background="@drawable/edt_bg"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.507"
             app:layout_constraintStart_toStartOf="parent"
@@ -45,6 +47,7 @@
             android:layout_marginTop="40dp"
             android:ems="10"
             android:hint="Last Name"
+            android:background="@drawable/edt_bg"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.507"
@@ -59,6 +62,7 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="ID No"
+            android:background="@drawable/edt_bg"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.507"
             app:layout_constraintStart_toStartOf="parent"
@@ -96,6 +100,7 @@
             android:layout_marginTop="20dp"
             android:ems="10"
             android:hint="Registration No"
+            android:background="@drawable/edt_bg"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -103,28 +108,29 @@
 
         <Button
             android:id="@+id/btnSubmit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="292dp"
+            android:layout_height="48dp"
             android:layout_marginTop="20dp"
             android:text="Submit"
-            android:background="@color/teal_200"
+            android:background="@drawable/btn_bg"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/spSchool" />
 
         <Button
             android:id="@+id/btnCancel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="292dp"
+            android:layout_height="48dp"
             android:layout_marginTop="16dp"
             android:text="Cancel"
+            android:background="@drawable/btn_bg"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnSubmit" />
 
         <Spinner
             android:id="@+id/spCourses"
-            android:layout_width="200dp"
+            android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="12dp"
             android:background="@android:drawable/btn_dropdown"
@@ -135,7 +141,7 @@
 
         <Spinner
             android:id="@+id/spDepartment"
-            android:layout_width="200dp"
+            android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="32dp"
             android:background="@android:drawable/btn_dropdown"
@@ -147,7 +153,7 @@
 
         <Spinner
             android:id="@+id/spSchool"
-            android:layout_width="200dp"
+            android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="40dp"
             android:background="@android:drawable/btn_dropdown"

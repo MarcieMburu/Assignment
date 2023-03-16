@@ -11,10 +11,11 @@
         android:id="@+id/btnSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="32dp"
         android:text="Save"
+        android:background="@color/design_default_color_primary_dark"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.291"
+        app:layout_constraintHorizontal_bias="0.328"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spUnits" />
 
@@ -22,10 +23,10 @@
         android:id="@+id/btnNext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="32dp"
         android:text="Next"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.863"
+        app:layout_constraintHorizontal_bias="0.674"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spUnits" />
 
@@ -82,6 +83,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
         android:text="Fill in the Course Details"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.463"
         app:layout_constraintStart_toStartOf="parent"
@@ -93,6 +95,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="6dp"
         android:text="Select Course"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/spCourses"
         app:layout_constraintEnd_toEndOf="@+id/spCourses"
         app:layout_constraintHorizontal_bias="0.477"
@@ -103,6 +106,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Select Year"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/spYear"
         app:layout_constraintEnd_toEndOf="@+id/spYear"
         app:layout_constraintStart_toStartOf="@+id/spYear" />
@@ -113,6 +117,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:text="Select Semester"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/spSemester"
         app:layout_constraintEnd_toEndOf="@+id/spSemester"
         app:layout_constraintStart_toStartOf="@+id/spSemester" />
@@ -122,6 +127,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Select Units"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/spUnits"
         app:layout_constraintEnd_toEndOf="@+id/spUnits"
         app:layout_constraintStart_toStartOf="@+id/spUnits" />

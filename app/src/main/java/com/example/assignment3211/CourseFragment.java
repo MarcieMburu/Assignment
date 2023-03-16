@@ -1,5 +1,6 @@
 package com.example.assignment3211;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -23,11 +24,11 @@ public class CourseFragment extends Fragment {
     String course, year, semester, unit;
     ArrayAdapter<String> coursesAdapter, yearAdapter, semesterAdapter, unitsAdapter;
 
-    Button btnSubmit, btnCancel;
+    Button btnSave, btnNext;
     private String[] courses = {"Computer Science", "IT", "BBIT"};
     private String[] years = {"First Year ", "Second Year ", "Third Year", "Forth Year"};
     private String[] semesters = {"1st Semester", "2nd Semester  "};
-    private String[] units = {"Computer Science & IT", "School of Engineering ", "School of Business"};
+    private String[] units = {"Computer Architecture ", "", ""};
 
 
     @Override
@@ -37,6 +38,8 @@ public class CourseFragment extends Fragment {
 
         binding = FragmentCourseBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
+
+
 
         // initialize spinner adapters
         coursesAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, courses);
