@@ -6,9 +6,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.fragment.NavHostFragment;
-
-
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -57,16 +54,11 @@ public class CourseFragment extends Fragment {
         yearAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         semesterAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, semesters);
         semesterAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        unitsAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, units);
-        unitsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
 
         // set spinner adapters
         binding.spCourses.setAdapter(coursesAdapter);
         binding.spYear.setAdapter(yearAdapter);
         binding.spSemester.setAdapter(semesterAdapter);
-        binding.spUnits.setAdapter(unitsAdapter);
-
 
         //spinner click listeners (Select listeners)
         binding.spCourses.setOnItemSelectedListener((new AdapterView.OnItemSelectedListener() {
@@ -81,7 +73,6 @@ public class CourseFragment extends Fragment {
 
             }
         }));
-
         //spinner click listeners (Select listeners)
         binding.spSemester.setOnItemSelectedListener((new AdapterView.OnItemSelectedListener() {
             @Override
@@ -96,22 +87,10 @@ public class CourseFragment extends Fragment {
             }
         }));
         //spinner click listeners (Select listeners)
-        binding.spUnits.setOnItemSelectedListener((new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-		    // set unit
-                unit = parent.getItemAtPosition(position).toString();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        }));
-        //spinner click listeners (Select listeners)
         binding.spYear.setOnItemSelectedListener((new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                // set year
                 year = parent.getItemAtPosition(position).toString();
             }
 
