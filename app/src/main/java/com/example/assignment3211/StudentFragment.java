@@ -125,22 +125,22 @@ public class StudentFragment extends Fragment {
             }
 
             // initialize user data
-            Student user = new Student();
-            user.setFirstName(firstName);
-            user.setMiddleName(middleName);
-            user.setLastName(lastName);
-            user.setGender(gender);
-            user.setIdNo(idNo);
-            user.setRegNo(regNo);
-            user.setSchool(school);
-            user.setDepartment(department);
-            user.setCourse(course);
+            Student student = new Student();
+            student.setFirstName(firstName);
+            student.setMiddleName(middleName);
+            student.setLastName(lastName);
+            student.setGender(gender);
+            student.setIdNo(idNo);
+            student.setRegNo(regNo);
+            student.setSchool(school);
+            student.setDepartment(department);
+            student.setCourse(course);
 
             // save data to firebase
             loader.setMessage("Saving data...");
             loader.show();
             //db.collection("Students").add(user.toMap()).addOnCompleteListener(task -> { // auto-generated document Id
-            db.collection("Students").document("1").set(user.toMap()).addOnCompleteListener(task -> {
+            db.collection("Students").document("1").set(student.toMap()).addOnCompleteListener(task -> {
                 loader.dismiss();
                 if (!task.isSuccessful()){
                     Toast.makeText(getActivity(), "Unable to save student data: "+task.getException().getMessage(), Toast.LENGTH_LONG).show();
