@@ -97,6 +97,10 @@ public class StudentFragment extends Fragment {
         db = FirebaseFirestore.getInstance();
         loader = new ProgressDialog(getActivity());
 
+
+
+
+
         // set click listeners here
         binding.btnSubmit.setOnClickListener(v -> {
             // get user data
@@ -105,6 +109,14 @@ public class StudentFragment extends Fragment {
             lastName = binding.edtLastname.getText().toString();
             idNo = binding.edtIdno.getText().toString();
             regNo = binding.edtRegno.getText().toString();
+
+
+            // check if all EditText fields are filled
+            if (firstName.isEmpty() || lastName.isEmpty() || idNo.isEmpty() || regNo.isEmpty()) {
+                Toast.makeText(getActivity(), "Please fill all required fields", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             // get gender
             if (binding.rbMale.isChecked()){
                 gender = binding.rbMale.getText().toString();
@@ -137,5 +149,23 @@ public class StudentFragment extends Fragment {
             });
         });
 
+
+
+        // set click listener for cancel button
+        binding.btnCancel.setOnClickListener(v -> {
+            // clear input fields
+            binding.edtFirstname.setText("");
+            binding.edtMiddlename.setText("");
+            binding.edtLastname.setText("");
+            binding.edtIdno.setText("");
+            binding.edtRegno.setText("");
+            binding.rbMale.setChecked(true);
+            binding.spCourses.setSelection(0);
+            binding.spDepartment.setSelection(0);
+            binding.spSchool.setSelection(0);
+        });
+
     }
 }
+
+

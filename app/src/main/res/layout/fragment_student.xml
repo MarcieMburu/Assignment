@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StudentFragment">
+    tools:context=".StudentFragment"
+    android:background="@color/white">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -30,13 +31,13 @@
             android:id="@+id/edtMiddlename"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
-            android:layout_marginTop="16dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Middle Name"
+            android:layout_marginTop="24dp"
             android:background="@drawable/edt_bg"
+            android:ems="10"
+            android:hint="Middle Name"
+            android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.507"
+            app:layout_constraintHorizontal_bias="0.512"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edtFirstname" />
 
@@ -69,28 +70,30 @@
             app:layout_constraintTop_toBottomOf="@+id/edtLastname" />
 
         <RadioGroup
+            android:id="@+id/radioGroup"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/edtRegno"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp"
             android:gravity="center_horizontal|center_vertical"
             android:orientation="horizontal"
-            >
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edtRegno">
+
             <RadioButton
                 android:id="@+id/rbMale"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Male"
-                android:checked="true"
+                android:layout_height="48dp"
                 android:layout_marginRight="20dp"
-                />
+                android:checked="true"
+                android:text="Male" />
+
             <RadioButton
                 android:id="@+id/rbFemale"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Female"
-                />
+                android:layout_height="48dp"
+                android:text="Female" />
         </RadioGroup>
 
         <EditText
@@ -98,9 +101,10 @@
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:layout_marginTop="20dp"
+            android:background="@drawable/edt_bg"
             android:ems="10"
             android:hint="Registration No"
-            android:background="@drawable/edt_bg"
+
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -108,10 +112,11 @@
 
         <Button
             android:id="@+id/btnSubmit"
-            android:layout_width="292dp"
+            android:layout_width="300dp"
             android:layout_height="48dp"
             android:layout_marginTop="20dp"
             android:text="Submit"
+            android:textColor="@color/white"
             android:background="@drawable/btn_bg"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -119,10 +124,12 @@
 
         <Button
             android:id="@+id/btnCancel"
-            android:layout_width="292dp"
+            android:layout_width="300dp"
             android:layout_height="48dp"
             android:layout_marginTop="16dp"
             android:text="Cancel"
+
+            android:textColor="@color/white"
             android:background="@drawable/btn_bg"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -205,6 +212,16 @@
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="28dp"
+            android:text="Gender"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtRegno" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,18 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CourseFragment">
+    tools:context=".CourseFragment"
+    android:background="@color/white">
+
 
 
     <Button
         android:id="@+id/btnSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="84dp"
         android:text="Save"
-        android:background="@color/design_default_color_primary_dark"
+        android:background="@drawable/btn_bg"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.328"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spUnits" />
 
@@ -23,16 +26,18 @@
         android:id="@+id/btnNext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/btn_bg"
         android:text="Next"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.674"
+        app:layout_constraintHorizontal_bias="0.537"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spUnits" />
+        app:layout_constraintTop_toBottomOf="@+id/btnSave" />
 
     <Spinner
         android:id="@+id/spCourses"
-        android:layout_width="200dp"
+        android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="124dp"
         android:background="@android:drawable/btn_dropdown"
@@ -43,7 +48,7 @@
 
     <Spinner
         android:id="@+id/spYear"
-        android:layout_width="200dp"
+        android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="32dp"
         android:background="@android:drawable/btn_dropdown"
@@ -55,7 +60,7 @@
 
     <Spinner
         android:id="@+id/spSemester"
-        android:layout_width="200dp"
+        android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="36dp"
         android:background="@android:drawable/btn_dropdown"
@@ -67,7 +72,7 @@
 
     <Spinner
         android:id="@+id/spUnits"
-        android:layout_width="200dp"
+        android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="40dp"
         android:background="@android:drawable/btn_dropdown"
@@ -85,7 +90,6 @@
         android:text="Fill in the Course Details"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.463"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -98,7 +102,6 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/spCourses"
         app:layout_constraintEnd_toEndOf="@+id/spCourses"
-        app:layout_constraintHorizontal_bias="0.477"
         app:layout_constraintStart_toStartOf="@+id/spCourses" />
 
     <TextView
@@ -126,6 +129,7 @@
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
         android:text="Select Units"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/spUnits"

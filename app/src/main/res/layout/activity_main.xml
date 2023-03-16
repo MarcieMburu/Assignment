@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:tabIndicatorColor="@color/teal_200"
-        android:background="@color/black"
+        android:background="@color/teal_700"
         app:tabSelectedTextColor="@color/white"
         app:tabTextColor="#D6D6D6">
 
@@ -40,4 +40,7 @@
         android:layout_below="@+id/tab_layout">
 
     </androidx.viewpager2.widget.ViewPager2>
+
+
+
 </RelativeLayout>
