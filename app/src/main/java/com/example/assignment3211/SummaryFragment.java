@@ -39,11 +39,37 @@ public class SummaryFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         db = FirebaseFirestore.getInstance();
+        // get Student and course details data
+        getData();
+
+        // load data on refresh button click
+        binding.btnRefresh.setOnClickListener(v -> getData());
+    }
+
+
+    // helper method to render Student info
+    private void renderUI(Student student){
+        binding.tvName.setText("Full Names: "+student.getFirstName()+" "+student.getMiddleName()+" "+student.getLastName());
+        binding.tvRegno.setText("Registration Number: "+student.getRegNo());
+        binding.tvIdNo.setText("ID Number: "+student.getIdNo());
+        binding.tvGender.setText("Gender: "+student.getGender());
+        binding.tvDepartment.setText("Department: "+student.getDepartment());
+        binding.tvCourse.setText("Course: "+student.getCourse());
+    }
+
+    // helper method to render Student Course Details
+    private void renderUI(CourseDetails courseDetails){
+        binding.tvCourse.setText("Course: "+courseDetails.getCourse());
+        binding.tvYear.setText("Year: "+courseDetails.getYear());
+        binding.tvSemester.setText("Semester: "+courseDetails.getSemester());
+    }
+
+    // get data from Firebase
+    private void getData(){
         DocumentReference studentDocRef =  db.collection("Students").document("1");
         DocumentReference courseDetailsDocRef = studentDocRef.collection("CourseDetails").document("1");
-
         // get Student data saved in the database
-       studentDocRef.get().addOnCompleteListener(task -> {
+        studentDocRef.get().addOnCompleteListener(task -> {
             if (!task.isSuccessful()){
                 Toast.makeText(getActivity(), "Error getting student data: "+task.getException().getMessage(), Toast.LENGTH_LONG).show();
                 return;
@@ -69,22 +95,5 @@ public class SummaryFragment extends Fragment {
             CourseDetails courseDetails = snapshot.toObject(CourseDetails.class);
             renderUI(courseDetails);
         });
-    }
-
-
-    // helper method to render Student info
-    private void renderUI(Student student){
-        binding.tvName.setText("Full Names: "+student.getFirstName()+" "+student.getMiddleName()+" "+student.getLastName());
-        binding.tvRegno.setText("Registration Number: "+student.getRegNo());
-        binding.tvIdNo.setText("ID Number: "+student.getIdNo());
-        binding.tvDepartment.setText("Department: "+student.getDepartment());
-        binding.tvCourse.setText("Course: "+student.getCourse());
-    }
-
-    // helper method to render Student Course Details
-    private void renderUI(CourseDetails courseDetails){
-        binding.tvCourse.setText("Course: "+courseDetails.getCourse());
-        binding.tvYear.setText("Year: "+courseDetails.getYear());
-        binding.tvSemester.setText("Semester: "+courseDetails.getSemester());
     }
 }
