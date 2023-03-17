@@ -12,17 +12,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.assignment3211.databinding.FragmentStudentBinding;
-import com.example.assignment3211.models.User;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.DocumentReference;
+import com.example.assignment3211.models.Student;
 import com.google.firebase.firestore.FirebaseFirestore;
-
-import org.checkerframework.checker.units.qual.A;
 
 public class StudentFragment extends Fragment {
     // to use with viewBinding
@@ -103,6 +97,10 @@ public class StudentFragment extends Fragment {
         db = FirebaseFirestore.getInstance();
         loader = new ProgressDialog(getActivity());
 
+
+
+
+
         // set click listeners here
         binding.btnSubmit.setOnClickListener(v -> {
             // get user data
@@ -111,6 +109,14 @@ public class StudentFragment extends Fragment {
             lastName = binding.edtLastname.getText().toString();
             idNo = binding.edtIdno.getText().toString();
             regNo = binding.edtRegno.getText().toString();
+
+
+            // check if all EditText fields are filled
+            if (firstName.isEmpty() || lastName.isEmpty() || idNo.isEmpty() || regNo.isEmpty()) {
+                Toast.makeText(getActivity(), "Please fill all required fields", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             // get gender
             if (binding.rbMale.isChecked()){
                 gender = binding.rbMale.getText().toString();
@@ -119,7 +125,7 @@ public class StudentFragment extends Fragment {
             }
 
             // initialize user data
-            User user = new User();
+            Student user = new Student();
             user.setFirstName(firstName);
             user.setMiddleName(middleName);
             user.setLastName(lastName);
@@ -143,5 +149,23 @@ public class StudentFragment extends Fragment {
             });
         });
 
+
+
+        // set click listener for cancel button
+        binding.btnCancel.setOnClickListener(v -> {
+            // clear input fields
+            binding.edtFirstname.setText("");
+            binding.edtMiddlename.setText("");
+            binding.edtLastname.setText("");
+            binding.edtIdno.setText("");
+            binding.edtRegno.setText("");
+            binding.rbMale.setChecked(true);
+            binding.spCourses.setSelection(0);
+            binding.spDepartment.setSelection(0);
+            binding.spSchool.setSelection(0);
+        });
+
     }
 }
+
+
