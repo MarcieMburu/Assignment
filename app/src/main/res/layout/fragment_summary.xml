@@ -123,30 +123,34 @@
 
         <TableLayout
             android:id="@+id/tlUnits"
-            android:layout_width="200dp"
-            android:layout_height="100dp"
-            android:layout_marginStart="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
             android:layout_marginTop="50dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvSemester">
+            app:layout_constraintTop_toBottomOf="@id/tvSemester"
+            android:layout_marginEnd="18dp"
+            android:paddingEnd="10dp"
+            android:paddingStart="10dp"
+            android:stretchColumns="0">
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                >
+                <TextView
+                    android:text="Unit Code"
+                    android:textStyle="bold"
+                    android:textColor="#000"/>
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                <TextView
+                    android:text="Unit Name"
+                    android:textStyle="bold"
+                    android:textColor="#000"
+                    />
+            </TableRow>
         </TableLayout>
 
         <Button
