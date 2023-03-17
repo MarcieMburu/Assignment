@@ -6,6 +6,9 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +18,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import com.example.assignment3211.databinding.FragmentStudentBinding;
+import com.example.assignment3211.models.MySharedViewModel;
 import com.example.assignment3211.models.Student;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -28,6 +32,7 @@ public class StudentFragment extends Fragment {
     private String[] schools = {"Computer Science & IT", "School of Engineering ", "School of Business"};
     FirebaseFirestore db;
     ProgressDialog loader;
+    private MySharedViewModel viewModel;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentStudentBinding.inflate(getLayoutInflater());
@@ -50,6 +55,8 @@ public class StudentFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 course = parent.getItemAtPosition(position).toString();
+                // notify observer about selection change
+                viewModel.setData(String.valueOf(position));
             }
 
             @Override
@@ -97,6 +104,9 @@ public class StudentFragment extends Fragment {
         db = FirebaseFirestore.getInstance();
         loader = new ProgressDialog(getActivity());
 
+        // initialize viewModel
+        viewModel = new ViewModelProvider(getActivity()).get(MySharedViewModel.class);
+        
         // set click listeners here
         binding.btnSubmit.setOnClickListener(v -> {
             // get user data
