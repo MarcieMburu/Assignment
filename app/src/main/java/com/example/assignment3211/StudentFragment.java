@@ -96,7 +96,7 @@ public class StudentFragment extends Fragment {
 
         db = FirebaseFirestore.getInstance();
         loader = new ProgressDialog(getActivity());
-        
+
         // set click listeners here
         binding.btnSubmit.setOnClickListener(v -> {
             // get user data
