@@ -1,6 +1,7 @@
 package com.example.assignment3211;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.annotation.SuppressLint;
@@ -22,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     ViewPagerFragmentAdapter viewPagerFragmentAdapter;
     TabLayout tabLayout;
     ViewPager2 viewPager2;
+    RecyclerView recyclerView;
+
 
     private String[] titles=new String[]{"Student","Course","Summary"};
 

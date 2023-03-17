@@ -21,8 +21,8 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 public class SummaryFragment extends Fragment {
     private FragmentSummaryBinding binding;
-    RecyclerView recyclerView;
-    StudentAd
+
+
     FirebaseFirestore db;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
