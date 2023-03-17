@@ -1,18 +1,18 @@
 
 package com.example.assignment3211.models;
 
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 public class MySharedViewModel extends ViewModel {
-	private String course;
+	private MutableLiveData<String> data = new MutableLiveData<>();
 
-	// setting data to the model
-	public void setCourse(String course) {
-		this.course = course;
+	public LiveData<String> getData(){
+		return  data;
 	}
 
-	// getting course data
-	public String getCourse(){
-		return this.course;
+	public void setData(String newData){
+		data.setValue(newData);
 	}
 }
