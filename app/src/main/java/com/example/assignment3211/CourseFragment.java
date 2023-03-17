@@ -6,6 +6,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,8 +19,12 @@ import android.widget.Toast;
 
 import com.example.assignment3211.databinding.FragmentCourseBinding;
 import com.example.assignment3211.models.CourseDetails;
+import com.example.assignment3211.models.MySharedViewModel;
 import com.example.assignment3211.models.Unit;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.lang.reflect.Array;
+import java.util.Arrays;
 
 
 public class CourseFragment extends Fragment {
@@ -26,20 +32,18 @@ public class CourseFragment extends Fragment {
     private FragmentCourseBinding binding;
   
     String course = "", year = "", semester = "";
-    ArrayAdapter<String> coursesAdapter, yearAdapter, semesterAdapter, unitsAdapter;
+    ArrayAdapter<String> coursesAdapter;
+    ArrayAdapter<String> yearAdapter;
+    ArrayAdapter<String> semesterAdapter;
 
-    Button btnSave, btnNext;
 
     private String[] courses = {"Computer Science", "IT", "BBIT"};
     private String[] years = {"First Year ", "Second Year ", "Third Year", "Forth Year"};
-    private String[] semesters = {"1st Semester", "2nd Semester  "};
-    private String[] units = {"Computer Architecture ", "", ""};
-
-
-    //firebase
-    FirebaseFirestore db;
-    //
+    private String[] semesters = {"1st Semester", "2nd Semester"};
+    FirebaseFirestore db;  //firebase
     ProgressDialog loader;
+    private MySharedViewModel viewModel;
+    private int coursePos = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -58,6 +62,7 @@ public class CourseFragment extends Fragment {
 
         // set spinner adapters
         binding.spCourses.setAdapter(coursesAdapter);
+        binding.spCourses.setFocusable(false); // disable course selection
         binding.spYear.setAdapter(yearAdapter);
         binding.spSemester.setAdapter(semesterAdapter);
 
@@ -65,8 +70,12 @@ public class CourseFragment extends Fragment {
         binding.spCourses.setOnItemSelectedListener((new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-		    // set course
-                course = parent.getItemAtPosition(position).toString();
+		        // throw error on course selection
+                if (!parent.getItemAtPosition(position).toString().equals(course)){
+                    Toast.makeText(getActivity(), "You cannot change course here! ", Toast.LENGTH_LONG).show();
+                    // search for the position of the selected course in the array
+                    binding.spCourses.setSelection(coursePos);
+                }
             }
 
             @Override
@@ -115,6 +124,15 @@ public class CourseFragment extends Fragment {
 
         db = FirebaseFirestore.getInstance();
         loader = new ProgressDialog(getActivity());
+        viewModel = new ViewModelProvider(getActivity()).get(MySharedViewModel.class);  // viewModel instance
+        // observe course selection change
+        viewModel.getData().observe(getActivity(), position -> {
+            // update selected course
+            int pos = Integer.parseInt(position);
+            coursePos = pos;
+            binding.spCourses.setSelection(pos);
+            course = courses[pos];
+        });
 
         // set click listeners here
         binding.btnSave.setOnClickListener(v -> {
